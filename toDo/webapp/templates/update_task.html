@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} Update {{ task.title }} {% endblock %}
+
+{% block nav %}<a href="{% url 'index' %}">Home</a>{%  endblock %}
+{% block content %}
+    <h1>Update Task {{ task.title }}</h1>
+<form action="{% url 'update' task.pk %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="title" value="{{ task.title }}" required>
+    <input type="text" name="description" value="{{ task.description }}" required>
+    <label for="status">---------------------------SELECT STATUS----------------------</label>
+    <select name="status" id="status">
+        <option value="{{ task.status }}" selected>{{ task.status }}</option>
+        {% for status in statuses %}
+            <option value="{{ status.0 }}">{{ status.1 }}</option>
+        {% endfor %}
+    </select>
+    <input type="text" name="deadline" value="{{ task.deadline }}">
+<button type="submit">Update</button>
+</form>
+{% endblock %}

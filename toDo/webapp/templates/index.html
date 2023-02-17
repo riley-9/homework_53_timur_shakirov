@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %} Task List {% endblock %}
+
+{% block nav %}<a href="{% url 'create' %}">Add new task</a>{%  endblock %}
+
+{% block content %}
+<h1>Tasks</h1>
+
+{% if task_list %}
+    {% for task in task_list %}
+        <h3 class="task_title">{{ task.title }}</h3>
+        <p class="task_description"><b>STATUS :</b> {{ task.status }}</p>
+        <a href="{% url 'detail' task.pk %}">View more...</a>
+    {% endfor %}
+{% else %}
+    <h2>No tasks yet...</h2>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %} Task {{ task.title }} {% endblock %}
+
+{% block nav %}<a href="{% url 'index' %}">Home</a>{%  endblock %}
+<h1>Task {{ task.title }}</h1>
+{% block content %}
+ <h3 class="task_title">{{ task.title }}</h3>
+    <p class="task_description">{{ task.description }}</p>
+    <p class="task_description"><b>STATUS :</b> {{ task.status }}</p>
+    <p class="task_description"><b>Deadline :</b> {{ task.deadline }}</p>
+    <a href="{% url 'delete' task.pk %}">Delete</a>
+    <a href="{% url 'update' task.pk %}">Update</a>
+{% endblock %}
