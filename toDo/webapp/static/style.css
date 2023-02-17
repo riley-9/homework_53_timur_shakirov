@@ -1,0 +1,58 @@
+body {
+
+
+    margin-top: 60px;
+
+}
+
+
+.navbar {
+
+    display: block;
+
+    background: #6a7dff;
+
+    position: fixed;
+
+    top: 0;
+
+    right: 0;
+
+    left: 0;
+
+    font-size: 0;
+
+    box-sizing: border-box;
+
+    padding: 7px 30px;
+
+}
+
+
+.menu li {
+
+    display: inline-block;
+
+}
+
+
+.menu a {
+
+    display: inline-block;
+
+    text-decoration: none;
+
+    color: inherit;
+
+    padding: 5px 15px;
+
+}
+
+
+.menu a:hover {
+
+    color: #ffc122;
+
+    text-decoration: underline;
+
+}

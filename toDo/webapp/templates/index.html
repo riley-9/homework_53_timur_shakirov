@@ -1,18 +1,21 @@
-{% extends 'base.html' %}
-{% block title %} Task List {% endblock %}
 
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Task List {% endblock %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% block nav %}<a href="{% url 'create' %}">Add new task</a>{%  endblock %}
 
 {% block content %}
-<h1>Tasks</h1>
+<h1>To Do List</h1>
+<h2>Tasks</h2>
 
 {% if task_list %}
-    {% for task in task_list %}
-        <h3 class="task_title">{{ task.title }}</h3>
-        <p class="task_description"><b>STATUS :</b> {{ task.status }}</p>
-        <a href="{% url 'detail' task.pk %}">View more...</a>
-    {% endfor %}
+{% for task in task_list %}
+<h3 class="task_title">{{ task.title }}</h3>
+<p class="task_description"><b>STATUS :</b> {{ task.status }}</p>
+<a href="{% url 'detail' task.pk %}">View more...</a>
+{% endfor %}
 {% else %}
-    <h2>No tasks yet...</h2>
+<h2>No tasks yet...</h2>
 {% endif %}
 {% endblock %}

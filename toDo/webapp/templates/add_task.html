@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %} New Task {% endblock %}
-
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
 {% block nav %}<a href="{% url 'index' %}">Home</a>{%  endblock %}
 {% block content %}
 <h1>Add New Task</h1>
@@ -12,10 +13,10 @@
 
     <select name="status" id="status">
         {% for status in statuses %}
-            <option value="{{ status.0 }}">{{ status.1 }}</option>
+        <option value="{{ status.0 }}">{{ status.1 }}</option>
         {% endfor %}
     </select>
     <input type="text" name="deadline">
-<button type="submit">Create</button>
+    <button type="submit">Create</button>
 </form>
 {% endblock %}
